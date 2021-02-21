@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <div class="col-9">
+        <a type="button" href="/nameform" class="btn btn-primary">
+            {% if not loggedIn%}
+            Get a ghost name!
+            {% else %}
+            Change your ghost name!
+            {% endif %}
+        </a>
+        <ul class="list-group">
+            {% for i in range(ghost|length) %}
+                {% if ghost[i].isTaken == False %}
+                    <li class="list-group-item">{{ ghost[i].ghostname }}</li>
+                {% else  %}
+                    <li class="list-group-item">{{ ghost[i].ghostname }}, taken by: {{ghost[i].firstName}}
+                    {{ghost[i].lastName}} {{ghost[i].email}}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+

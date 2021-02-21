@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <form action="/sumbitname" method="post">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="firstName">First Name</span>
+          <input name="firstName" type="text" class="form-control"
+                 aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                  value="{% if loggedIn%}{{firstname}}{% endif %}" >
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="lastName">Last Name</span>
+          <input name="lastName" type="text" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default"  value="{% if loggedIn%}{{lastname}}{% endif %}">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="email">Email</span>
+          <input name="email" type="text" class="form-control" aria-label="Sizing example input"
+                 aria-describedby="inputGroup-sizing-default"  value="{% if loggedIn%}{{email}}{% endif %}">
+        </div>
+        <button type="submit"  class="btn btn-primary">Get me my ghost name!</button>
+    </form>
+{% endblock %}

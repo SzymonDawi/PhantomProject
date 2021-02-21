@@ -1,0 +1,19 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <div class="col-9">
+        <ul class="list-group">
+            {% for i in range(ghost|length) %}
+                <div class="input-group mb-3">
+                    <li class="list-group-item">{{ firstName }} "{{ ghost[i].ghostname }}" {{lastName}}</li>
+                    {% if not changename %}
+                    <a type="button" href="/selectname?ghostname={{ ghost[i].ghostname}}" class="btn btn-primary">Choose this name!</a>
+                    {% else %}
+                    <a type="button" href="/changename?ghostname={{ ghost[i].ghostname}}" class="btn btn-primary">Choose this name!</a>
+                    {% endif %}</a>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
